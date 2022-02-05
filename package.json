@@ -1,0 +1,31 @@
+{
+  "name": "sxs",
+  "private": true,
+  "baseUrl": "src",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.7.2",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@fontsource/poppins": "^4.5.0",
+    "framer-motion": "^4",
+    "next": "12.0.6",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "swiper": "6.8.4"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.1.0",
+    "@types/node": "16.11.11",
+    "@types/react": "17.0.37",
+    "eslint": "8.4.0",
+    "eslint-config-next": "12.0.6",
+    "eslint-config-prettier": "^8.3.0",
+    "typescript": "4.5.2"
+  }
+}
