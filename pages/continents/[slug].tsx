@@ -27,18 +27,23 @@ type UnsplashImageProps = {
   };
 };
 
-type Props = {
-  data: { results: UnsplashImageProps[] };
-  continentData: {
-    id: string;
-    info: string;
-    name: string;
-    stats: StatsItem[];
-    cities: [CityInfo];
-  };
-};
+interface ContinentProps {
+  data: { results: UnsplashImageProps[] } | undefined;
+  continentData:
+    | {
+        id: string;
+        info: string;
+        name: string;
+        stats: StatsItem[];
+        cities: [CityInfo];
+      }
+    | undefined;
+}
 
-function CoverImage(props: { imgUrl: string; continentName: string }) {
+function CoverImage(props: {
+  imgUrl: string | undefined;
+  continentName: string | undefined;
+}) {
   return (
     <Box
       width="100%"
@@ -63,7 +68,7 @@ function CoverImage(props: { imgUrl: string; continentName: string }) {
   );
 }
 
-function ContinentInfo(props: { info: string }) {
+function ContinentInfo(props: { info: string | undefined }) {
   return (
     <Box w={"50%"}>
       <Text fontSize="xl" w="100%" color={"headingsAndText"}>
@@ -91,11 +96,11 @@ function ContinentStatsItem(props: { statsItem: StatsItem }) {
   );
 }
 
-function ContinentStatsList(props: { stats: StatsItem[] }) {
+function ContinentStatsList(props: { stats: StatsItem[] | undefined }) {
   return (
     <Box w={"50%"} h="100px">
       <Flex w="100%" flexDir={"row"} justifyContent={"space-evenly"}>
-        {props.stats.map((e, i) => (
+        {props.stats?.map((e, i) => (
           <ContinentStatsItem statsItem={e} key={i} />
         ))}
       </Flex>
@@ -104,7 +109,7 @@ function ContinentStatsList(props: { stats: StatsItem[] }) {
 }
 
 const useFetchData = (tag: string, type: "city" | "flag" = "city") => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<Response>();
   const [loading, setLoading] = useState(true);
   const link =
     type === "city"
@@ -114,7 +119,7 @@ const useFetchData = (tag: string, type: "city" | "flag" = "city") => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let res = await fetch(link);
+        let res: Response = await fetch(link);
         res = await res.json();
         console.log(process.env.NODE_ENV, res);
         setData(res);
@@ -135,7 +140,7 @@ const useFetchData = (tag: string, type: "city" | "flag" = "city") => {
 
 function CityCard(props: { cityInfo: CityInfo }) {
   const { cityInfo } = props;
-  const { data: cityImg } = useFetchData(cityInfo.city_tag);
+  const { data }: { data: any } | undefined = useFetchData(cityInfo.city_tag);
   return (
     <Flex
       position={"relative"}
@@ -149,7 +154,7 @@ function CityCard(props: { cityInfo: CityInfo }) {
       <Box
         w="256px"
         h="173px"
-        backgroundImage={`url('${cityImg?.results?.[0]?.urls?.raw}')`}
+        backgroundImage={`url('${data?.results?.[0]?.urls?.raw}')`}
         backgroundRepeat={"round"}
       />
       <Flex
@@ -188,7 +193,7 @@ function CityCard(props: { cityInfo: CityInfo }) {
 
 const MemoizedCityCard = React.memo(CityCard);
 
-function OtherCities(props: { cities: CityInfo[] }) {
+function OtherCities(props: { cities: CityInfo[] | undefined }) {
   return (
     <Box position={"relative"} w="100%" h="700px">
       <Text
@@ -211,7 +216,7 @@ function OtherCities(props: { cities: CityInfo[] }) {
         flexWrap={"wrap"}
         justifyContent={"flex-start"}
       >
-        {props.cities.map((e, i) => (
+        {props.cities?.map((e, i) => (
           <Flex key={i} p={"12px"}>
             <MemoizedCityCard cityInfo={e} />
           </Flex>
@@ -221,20 +226,23 @@ function OtherCities(props: { cities: CityInfo[] }) {
   );
 }
 
-const Continent: React.FC<Props> = ({ data, continentData }) => {
+const Continent: React.FC<ContinentProps> = ({
+  data,
+  continentData,
+}: ContinentProps) => {
   return (
     <Flex maxWidth="1440px" justifyContent="center" flexDir="column" mx="auto">
       <Header />
       <CoverImage
-        continentName={continentData.name}
+        continentName={continentData?.name}
         imgUrl={data?.results?.[2].urls.raw}
       />
       <Flex justifyContent="center" alignItems={"center"} py="80px" px="140px">
-        <ContinentInfo info={continentData.info} />
-        <ContinentStatsList stats={continentData.stats} />
+        <ContinentInfo info={continentData?.info} />
+        <ContinentStatsList stats={continentData?.stats} />
       </Flex>
       <Flex justifyContent="center" alignItems={"center"} px="140px">
-        <OtherCities cities={continentData.cities} />
+        <OtherCities cities={continentData?.cities} />
       </Flex>
     </Flex>
   );
