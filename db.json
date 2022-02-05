@@ -1,0 +1,215 @@
+{
+  "continents": [
+    {
+      "id": "europe",
+      "name": "Europe",
+      "subtitle": "O continente mais antigo",
+      "info": "Europa é um dos seis continentes do mundo, localizado a oeste da Ásia e ao norte da África. O continente é composto por 50 países e possui o maior bloco econômico do mundo.",
+      "stats": [
+        { "países": "50" },
+        { "línguas": "60" },
+        { "cidades + 100": "27" }
+      ],
+      "cities": [
+        {
+          "name": "Londres",
+          "city_tag": "london",
+          "country": "Inglaterra",
+          "country_tag": "england"
+        },
+        {
+          "name": "Paris",
+          "city_tag": "paris",
+          "country": "França",
+          "country_tag": "france"
+        },
+        {
+          "name": "Roma",
+          "city_tag": "rome",
+          "country": "Itália",
+          "country_tag": "italy"
+        },
+        {
+          "name": "Praga",
+          "city_tag": "prague",
+          "country": "Rep. Tcheca",
+          "country_tag": "czechia"
+        },
+        {
+          "name": "Amsterdã",
+          "city_tag": "amsterdam",
+          "country": "Holanda",
+          "country_tag": "netherlands"
+        }
+      ]
+    },
+    {
+      "id": "south_america",
+      "name": "America do Sul",
+      "info": "Com uma extensão de cerca de 17,8 milhões de km², a América do Sul comporta 6% da população mundial dividida em 12 países e 7 territórios. São eles a Argentina, Bolívia, Brasil, Chile, Colômbia, Equador, Guiana, Paraguai, Peru, Suriname, Uruguai e Venezuela e, os territórios da Guiana Francesa, Ilha de Páscoa, Ilhas Galápagos, Ilhas Geórgia e Sandwich e Ilhas Malvinas. Limita-se ao norte com a América Central, à leste com o oceano atlântico e à oeste com o oceano pacífico.",
+      "stats": [
+        { "países": "23" },
+        { "línguas": "10" },
+        { "cidades + 100": "12" }
+      ],
+      "cities": [
+        {
+          "name": "São Paulo",
+          "city_tag": "saopaulo",
+          "country": "Brasil",
+          "country_tag": "brazil"
+        },
+        {
+          "name": "Buenos Aires",
+          "city_tag": "buenosaires",
+          "country": "Argentina",
+          "country_tag": "argentina"
+        },
+        {
+          "name": "Santiago",
+          "city_tag": "santiago",
+          "country": "Chile",
+          "country_tag": "chile"
+        },
+        {
+          "name": "Cuzco",
+          "city_tag": "cuzco",
+          "country": "Peru",
+          "country_tag": "peru"
+        },
+        {
+          "name": "Rio de Janeiro",
+          "city_tag": "riodejaneiro",
+          "country": "Brasil",
+          "country_tag": "brazil"
+        }
+      ]
+    },
+    {
+      "id": "northamerica",
+      "name": "America do Norte",
+      "info": "North America is a continent which is located entirely on the northern and western hemisphere. There are 23 countries in total on the North American continent.",
+      "stats": [
+        { "países": "23" },
+        { "línguas": "17" },
+        { "cidades + 100": "15" }
+      ],
+      "cities": [
+        {
+          "name": "Nova York",
+          "city_tag": "newyork",
+          "country": "Estados Unidos",
+          "country_tag": "united states"
+        },
+        {
+          "name": "Toronto",
+          "city_tag": "toronto",
+          "country": "Canadá",
+          "country_tag": "canada"
+        },
+        {
+          "name": "Cancun",
+          "city_tag": "cancun",
+          "country": "Mexico",
+          "country_tag": "mexico"
+        },
+        {
+          "name": "Washington",
+          "city_tag": "washington",
+          "country": "Estados Unidos",
+          "country_tag": "united states"
+        },
+        {
+          "name": "Miami",
+          "city_tag": "miami",
+          "country": "Estados Unidos",
+          "country_tag": "united states"
+        }
+      ]
+    },
+    {
+      "id": "asia",
+      "name": "Asia",
+      "info": "Asia, the world’s largest and most diverse continent. It occupies the eastern four-fifths of the giant Eurasian landmass. Asia is more a geographic term than a homogeneous continent, and the use of the term to describe such a vast area always carries the potential of obscuring the enormous diversity among the regions it encompasses.",
+      "stats": [
+        { "países": "48" },
+        { "línguas": "2300" },
+        { "cidades + 100": "41" }
+      ],
+      "cities": [
+        {
+          "name": "Honk Kong",
+          "city_tag": "hongkong",
+          "country": "China",
+          "country_tag": "china"
+        },
+        {
+          "name": "Bangkok",
+          "city_tag": "bangkok",
+          "country": "Tailandia",
+          "country_tag": "tailand"
+        },
+        {
+          "name": "Macau",
+          "city_tag": "macau",
+          "country": "China",
+          "country_tag": "china"
+        },
+        {
+          "name": "Shenzhen",
+          "city_tag": "shenzhen",
+          "country": "China",
+          "country_tag": "china"
+        },
+        {
+          "name": "Singapore",
+          "city_tag": "singapore",
+          "country": "Singapore",
+          "country_tag": "singapore"
+        }
+      ]
+    },
+    {
+      "id": "africa",
+      "name": "Africa",
+      "info": "is the continent with the most countries. There are 54 countries on the African continent.",
+      "stats": [
+        { "países": "54" },
+        { "línguas": "1220" },
+        { "cidades + 100": "7" }
+      ],
+      "cities": [
+        {
+          "name": "Johannesburg",
+          "city_tag": "johannesburg",
+          "country": "Africa do Sul",
+          "country_tag": "south africa"
+        },
+        {
+          "name": "Cape Town",
+          "city_tag": "capetown",
+          "country": "Africa do Sul",
+          "country_tag": "south africa"
+        },
+        {
+          "name": "Cairo",
+          "city_tag": "cairo",
+          "country": "Egito",
+          "country_tag": "egypt"
+        },
+        {
+          "name": "Lagos",
+          "city_tag": "lagos",
+          "country": "Nigeria",
+          "country_tag": "nigeria"
+        },
+        {
+          "name": "Casablanca",
+          "city_tag": "casablanca",
+          "country": "Marrocos",
+          "country_tag": "morocco"
+        }
+      ]
+    }
+  ]
+}
