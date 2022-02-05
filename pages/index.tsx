@@ -14,6 +14,7 @@ import Link from "next/link";
 // // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { ReactChild } from "react";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
@@ -28,26 +29,24 @@ function Banner() {
       backgroundRepeat={"no-repeat"}
     >
       <Text
-        fontSize={"4xl"}
-        lineHeight={"30px"}
+        fontSize={["5xl", "5xl", "4xl", "4xl"]}
+        lineHeight={["50px", "50px", "30px", "30px"]}
         position="absolute"
         color={"lightHeadings"}
-        // width="426px"
-        // height="108px"
-        top={["28px", "28px", "80px", "80px"]}
+        top={"80px"}
         left={["63px", "63px", "140px", "140px"]}
       >
         5 Continentes,
         <br /> infinitas possibilidades.
       </Text>
       <Text
-        fontSize="xl"
+        fontSize={["2xl", "2xl", "xl", "xl"]}
         position="absolute"
         color={"info"}
         width="524px"
         height="57px"
         top="208px"
-        left="140px"
+        left={["63px", "63px", "140px", "140px"]}
       >
         Chegou a hora de tirar do papel a viagem que você sempre sonhou.{" "}
       </Text>
@@ -56,7 +55,53 @@ function Banner() {
 }
 
 function TravelTypes() {
-  return <TravelTypesSvg />;
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+  const activiesTypes = [
+    "vida noturna",
+    "praia",
+    "moderno",
+    "clássico",
+    "e mais",
+  ];
+  if (isWideVersion) {
+    return <TravelTypesSvg />;
+  }
+  return (
+    <Flex
+      justifyContent={"space-evenly"}
+      flexDirection="row"
+      flexWrap="wrap"
+      w="100%"
+      h="275px"
+    >
+      {activiesTypes.map((e) => (
+        <Flex
+          key={e}
+          flexGrow={"initial"}
+          w="300px"
+          h="50px"
+          justifyContent={"center"}
+          alignItems="center"
+          gap="16px"
+        >
+          <Box
+            w="16px"
+            h="16px"
+            backgroundColor={"highlight"}
+            borderRadius="25px"
+          />
+          <Box>
+            <Text fontSize={"4xl"} textAlign="center" color={"headingsAndText"}>
+              {e}
+            </Text>
+          </Box>
+        </Flex>
+      ))}
+    </Flex>
+  );
 }
 
 let continentInfo = [
@@ -93,6 +138,10 @@ let continentInfo = [
 ];
 
 export default function Home() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <Flex
       id="home"
@@ -104,7 +153,7 @@ export default function Home() {
     >
       <Header />
       <Banner />
-      <Flex justifyContent="center" py="80px">
+      <Flex justifyContent="center" py={["40px", "40px", "80px", "80px"]}>
         <TravelTypes />
       </Flex>
       <Box w="90px" mx="auto" pb="52px">
@@ -112,7 +161,8 @@ export default function Home() {
       </Box>
       <Text
         w="100%"
-        fontSize="3xl"
+        fontSize={["4xl", "4xl", "3xl", "3xl"]}
+        fontWeight="normal"
         color={"headingsAndText"}
         height="101px"
         textAlign="center"
@@ -129,13 +179,16 @@ export default function Home() {
           pagination
         >
           {continentInfo.map((el) => (
-            <SwiperSlide key={el.title} style={{ width: "1240px" }}>
+            <SwiperSlide
+              key={el.title}
+              style={{ width: isWideVersion ? "1240px" : "768px" }}
+            >
               <Box position={"relative"}>
                 <Link href={`continents/${el.link}`}>
                   <a>
                     <Box
-                      top={"180px"}
-                      left={"310px"}
+                      top={["120px", "120px", "180px", "180px"]}
+                      left={["150px", "150px", "310px", "310px"]}
                       w={"50%"}
                       position={"absolute"}
                       zIndex={999}
@@ -159,14 +212,12 @@ export default function Home() {
                     </Box>
                   </a>
                 </Link>
-                {/* <Box zIndex={-1} position={"absolute"}> */}
                 <Image
                   src={el.src}
-                  alt="Europa"
-                  width="1240px"
+                  alt="continent"
+                  width={isWideVersion ? "1240px" : "768px"}
                   height="450px"
                 />
-                {/* </Box> */}
               </Box>
             </SwiperSlide>
           ))}
